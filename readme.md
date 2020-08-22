@@ -32,7 +32,7 @@ export default () => {
 };
 ```
 
-This will use the `linaria` CLI to parse all of the JS files and compile CSS files out. The build step would create a `public/src/pages/index.js` file.
+The `build` npm script will use the `linaria` CLI to parse all of the JS files and compile CSS files out. The build step would create a `public/src/pages/index.js` file.
 
 In the code snippet, we then add a `<link>` tag using `react-helmet` to import the CSS file.
 
