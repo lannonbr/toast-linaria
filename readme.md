@@ -34,6 +34,8 @@ export default () => {
 
 The `build` npm script will use the `linaria` CLI to parse all of the JS files and compile CSS files out. The build step would create a `public/src/pages/index.js` file.
 
+> Note: Linaria's CLI doesn't use Toast's babel config, so I added a `.babelrc` file to add the `@babel/preset-react` preset so it will understand JSX.
+
 In the code snippet, we then add a `<link>` tag using `react-helmet` to import the CSS file.
 
 Finally, we use the `linaria/babel` preset during a Toast build to rewrite the `className` fields to map to the generated class strings from Linaria.
