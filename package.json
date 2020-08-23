@@ -28,6 +28,7 @@
     },
     "knownEntrypoints": [
       "preact",
+      "preact/hooks",
       "preact/compat",
       "react-helmet"
     ]

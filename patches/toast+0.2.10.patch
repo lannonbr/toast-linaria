@@ -1,3 +1,26 @@
+diff --git a/node_modules/toast/src/page-renderer-pre.js b/node_modules/toast/src/page-renderer-pre.js
+index d34eca5..e64331e 100644
+--- a/node_modules/toast/src/page-renderer-pre.js
++++ b/node_modules/toast/src/page-renderer-pre.js
+@@ -15,7 +15,7 @@ const htmlTemplate = ({
+ }) => `<!DOCTYPE html>
+ <script>
+ window.componentPath = "${componentPath}";
+-window.wrapperComponentPath = "${pageWrapperPath}";
++window.wrapperComponentPath = ${pageWrapperPath && `"${pageWrapperPath}"`};
+ window.dataPath = ${dataPath && `"${dataPath}"`};
+ </script>
+ <html ${helmet.htmlAttributes.toString()}>
+@@ -78,6 +78,9 @@ exports.render = async ({
+   browserPageWrapperPath,
+   browserDataPath
+ }) => {
++  browserPageWrapperPath = pageWrapper ? browserPageWrapperPath : undefined
++  pageWrapper = pageWrapper ? pageWrapper : ({children}) => h('div', null, children)
++
+   const output = render(h(pageWrapper, data, h(component, data)));
+   //   console.log(output);
+   const helmet = Helmet.renderStatic();
 diff --git a/node_modules/toast/src/transforms.js b/node_modules/toast/src/transforms.js
 index fc9ac63..4029fe8 100644
 --- a/node_modules/toast/src/transforms.js
