@@ -1,5 +1,7 @@
 # Toast Starter w/ Linaria
 
+**Note: This does not work with Toast 0.3.0 or later for the time being due to Linaria being dependent on Babel**
+
 This is a basic Toast site that uses Linaria for CSS.
 
 ## Explaination
